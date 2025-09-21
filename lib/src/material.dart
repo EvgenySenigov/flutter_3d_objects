@@ -157,7 +157,7 @@ Future<MapEntry<String, Image>?> loadTexture(Material? material, String basePath
   Image? image;
   final List<String> dirList = fileName.split(RegExp(r'[/\\]+'));
   while (dirList.isNotEmpty) {
-    fileName = path.join(basePath, path.joinAll(dirList));
+    fileName = path.posix.join(basePath, path.joinAll(dirList));
     try {
       image = await loadImageFromAsset(fileName, isAsset: isAsset);
     } catch (_) {}
